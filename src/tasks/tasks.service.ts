@@ -32,8 +32,6 @@ export class TasksService {
   deleteTask(id: string): Task[] {
     this.tasks = this.tasks.filter((task) => task.id !== id);
 
-    console.log(this.tasks);
-
     return this.tasks;
   }
 }
