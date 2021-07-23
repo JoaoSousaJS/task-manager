@@ -66,7 +66,9 @@ export class TasksService {
   }
 
   deleteTaskStatus(id: string): Task[] {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    const taskFound = this.getTaskById(id);
+
+    this.tasks = this.tasks.filter((task) => task.id !== taskFound.id);
 
     return this.tasks;
   }
