@@ -9,8 +9,8 @@ import { Task } from './task.entity';
 @Injectable()
 export class TasksService {
   constructor(
-    @InjectRepository(Task)
-    private taskRepository: TasksRepository,
+    @InjectRepository(TasksRepository)
+    private tasksRepository: TasksRepository,
   ) {}
   // getAllTasks(): Task[] {
   //   return this.tasks;
@@ -33,7 +33,7 @@ export class TasksService {
   // }
 
   async getTaskById(id: string): Promise<Task> {
-    const task = await this.taskRepository.findOne(id);
+    const task = await this.tasksRepository.findOne(id);
 
     if (!task) {
       throw new NotFoundException();
